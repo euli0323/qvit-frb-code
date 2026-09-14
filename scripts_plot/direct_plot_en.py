@@ -235,7 +235,7 @@ def main():
     # ---- Remove narrowband RFI (bin first, then zap) ----
     # ---- Automatic binning (guard against extreme windows) ----
     data_rfi = data_out.astype(np.float64, copy=True)
-    bs = args.bin_samp if args.bin_samp is not None else 4
+    bs = args.bin_samp if args.bin_samp is not None else 16
     bf = args.bin_chn if args.bin_chn is not None else 16
     # Safety net: enlarge bs further if the binned column count is still huge
     if data_rfi.shape[1] // bs > 12000:
